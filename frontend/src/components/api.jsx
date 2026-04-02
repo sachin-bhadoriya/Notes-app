@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-    baseURL: import.meta.env.REACT_APP_API,
+    baseURL: "https://notes-app-izj4.onrender.com",
 })
 API.interceptors.request.use((req) => {
 
