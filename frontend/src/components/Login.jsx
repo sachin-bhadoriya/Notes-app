@@ -56,10 +56,10 @@ const Login = () => {
                                 <i onClick={handlePwdEye} className={`fa-solid ${!eyeOpen ? "fa-eye" : "fa-eye-slash"}`}></i>
                             </div>
 
-                            <div className="input-box checkbox">
+                            {/* <div className="input-box checkbox">
                                 <input type="checkbox" defaultChecked />
                                 <label>Remember me</label>
-                            </div>
+                            </div> */}
 
                             <button type="submit">Login</button>
                         </form>

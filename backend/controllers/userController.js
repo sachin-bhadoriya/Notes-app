@@ -1,6 +1,9 @@
+import { configDotenv } from "dotenv"
 import User from "../model/User.js"
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
+
+configDotenv()
 
 export const signup = async (req, res) => {
     const { name, username, email, password } = req.body
@@ -36,16 +39,6 @@ export const signup = async (req, res) => {
 
 }
 
-export const allUser = async (req, res) => {
-    try {
-        const user = await User.find()
-        res.json(user).status(201)
-    } catch (error) {
-        res.json({ message: error.message }).status(400)
-    }
-}
-
-
 export const login = async (req, res) => {
     const { username, password } = req.body
 
@@ -63,7 +56,7 @@ export const login = async (req, res) => {
         {
             id: userExist._id
         },
-        "thisIsSecretKey",
+        process.env.SECRET_KEY,
         { expiresIn: "1d" }
     );
 

@@ -1,9 +1,7 @@
-import { configDotenv } from "dotenv";
 import axios from "axios";
-configDotenv()
 
 const API = axios.create({
-    baseURL: process.env.REACT_APP_API,
+    baseURL: import.meta.env.REACT_APP_API,
 })
 API.interceptors.request.use((req) => {
 
